@@ -1,0 +1,11 @@
+[package]
+name = "xoom"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+mio = "1.0.4"
+protocol = { path = "crates/protocol" }
+
+[workspace]
+members = ["crates/*"]
