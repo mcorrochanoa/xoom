@@ -1,0 +1,53 @@
+---
+title: Mongo DB
+description: An introduction to MongoDB, a popular NoSQL database known for its flexibility and scalability.
+---
+
+import { YouTube } from 'astro-embed';
+
+[MongoDB](https://www.mongodb.com/) is a document-oriented NoSQL database. It is ideal for semi-structured data, rapid development, and horizontal scaling. Is designed to handle large volumes of data and high traffic loads, making it suitable for modern web applications.
+
+<YouTube id="https://youtu.be/GV9VBwH_h1U" posterQuality="max" />
+
+### Documents
+
+Data is stored in [documents](https://www.mongodb.com/docs/manual/core/document/), which are similar to [JSON](https://www.json.org/) or [BSON](https://bsonspec.org/) objects. Each document contains key-value pairs, where the keys are strings and the values can be various data types, including arrays and nested documents.
+
+```jsonc title="Example Document"
+{
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "name": "John Doe",
+  "age": 30,
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown"
+  },
+  "hobbies": ["reading", "traveling"]
+}
+```
+
+The document schema contains a unique `_id` field that serves as the primary key for the document. If not provided, MongoDB automatically generates an [`ObjectId`](https://www.mongodb.com/docs/manual/reference/bson-types/#std-label-objectid) for this field.
+
+Documents are grouped into [collections](https://www.mongodb.com/docs/manual/core/databases-and-collections/#collections), which are similar to tables in relational databases. Collections do not enforce a fixed schema, allowing for flexibility in the structure of documents.
+
+### Atlas Platform
+
+[MongoDB Atlas](https://www.mongodb.com/atlas) is a fully managed cloud database service provided by MongoDB. It offers features such as automated backups, scaling, and monitoring, making it easier to deploy and manage MongoDB databases in the cloud.
+
+It offers a free tier, which is great for learning and small projects. You can connect to Atlas using various [programming language-specific drivers](https://www.mongodb.com/docs/drivers/).
+
+### Compass
+
+[MongoDB Compass](https://www.mongodb.com/products/tools/compass) is the official GUI for MongoDB. It provides a visual interface for interacting with your MongoDB data, allowing you to explore your data, run queries, and perform various database operations without needing to write code.
+
+### When to Use
+
+- **Semi-structured or evolving data** - MongoDB shines when dealing with data that doesn't fit a rigid schema or when your data structure needs to adapt frequently without costly migrations.
+- **JSON-first APIs** - If you're building web or mobile applications that work natively with JSON, MongoDB's document-oriented model aligns perfectly with your API design, eliminating unnecessary transformation layers.
+- **Horizontal scalability** - MongoDB supports sharding out of the box, allowing you to scale your database incrementally by distributing data across multiple servers as your needs grow.
+- **Agile development** - For rapid prototyping and iterative development cycles where flexibility is paramount, MongoDB removes the friction of predefined schemas, letting you evolve your data model alongside your application.
+
+### References
+
+- [MongoDB YouTube Channel](https://youtube.com/@MongoDB)
+- [MongoDB Official Documentation](https://mongodb.com/docs/)

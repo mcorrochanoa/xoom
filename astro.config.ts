@@ -19,7 +19,10 @@ export default defineConfig({
             icon: 'seti:db',
             items: [
               { label: 'SQL', autogenerate: { directory: 'databases/sql' } },
-              { label: 'NoSQL', autogenerate: { directory: 'databases/nosql' } },
+              {
+                label: 'NoSQL',
+                autogenerate: { directory: 'databases/nosql' }
+              },
               { label: 'ORM', autogenerate: { directory: 'databases/orm' } }
             ]
           },
@@ -38,7 +41,10 @@ export default defineConfig({
           label: 'GitHub',
           href: 'https://github.com/mxuee/apt'
         }
-      ]
+      ],
+      editLink: {
+        baseUrl: 'https://github.com/mxuee/apt/edit/main/'
+      }
     })
   ]
 })
