@@ -13,16 +13,22 @@ export default defineConfig({
       plugins: [
         starlightSidebarTopics([
           {
-            label: 'Guides',
-            link: '/guides/',
-            icon: 'open-book',
-            items: ['guides/example']
+            label: 'Databases',
+            link: '/databases/',
+            id: 'databases',
+            icon: 'seti:db',
+            items: [
+              { label: 'SQL', autogenerate: { directory: 'databases/sql' } },
+              { label: 'NoSQL', autogenerate: { directory: 'databases/nosql' } },
+              { label: 'ORM', autogenerate: { directory: 'databases/orm' } }
+            ]
           },
           {
-            label: 'Reference',
-            link: '/reference/',
-            icon: 'information',
-            items: ['reference/example']
+            label: 'Frameworks',
+            link: '/frameworks/',
+            id: 'frameworks',
+            icon: 'seti:hex',
+            items: []
           }
         ])
       ],
