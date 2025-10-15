@@ -1,26 +1,38 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from 'astro/config'
+import starlight from '@astrojs/starlight'
+import starlightSidebarTopics from 'starlight-sidebar-topics'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
-		}),
-	],
-});
+  site: 'https://apt.mxuee.com',
+  integrations: [
+    starlight({
+      title: 'APT',
+      disable404Route: true,
+      plugins: [
+        starlightSidebarTopics([
+          {
+            label: 'Guides',
+            link: '/guides/',
+            icon: 'open-book',
+            items: ['guides/example']
+          },
+          {
+            label: 'Reference',
+            link: '/reference/',
+            icon: 'information',
+            items: ['reference/example']
+          }
+        ])
+      ],
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/mxuee/apt'
+        }
+      ]
+    })
+  ]
+})
