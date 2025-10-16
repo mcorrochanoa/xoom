@@ -1,9 +1,9 @@
 ---
 title: Mongo DB
-description: An introduction to MongoDB, a popular NoSQL database known for its flexibility and scalability.
+description: An introduction to MongoDB
 ---
 
-import { YouTube } from 'astro-embed';
+import { YouTube } from 'astro-embed'
 
 [MongoDB](https://www.mongodb.com/) is a document-oriented NoSQL database. It is ideal for semi-structured data, rapid development, and horizontal scaling. Is designed to handle large volumes of data and high traffic loads, making it suitable for modern web applications.
 
@@ -11,24 +11,31 @@ import { YouTube } from 'astro-embed';
 
 ### Documents
 
-Data is stored in [documents](https://www.mongodb.com/docs/manual/core/document/), which are similar to [JSON](https://www.json.org/) or [BSON](https://bsonspec.org/) objects. Each document contains key-value pairs, where the keys are strings and the values can be various data types, including arrays and nested documents.
+[Documents](https://www.mongodb.com/docs/manual/core/document/) are the basic unit of data in MongoDB. They are represented in [BSON](https://bsonspec.org/) format (a binary extension of JSON) and can contain complex data structures, including arrays and nested documents.
 
-```jsonc title="Example Document"
+The data is a key-value structure where the key is a string and the value can be of various [types](https://www.mongodb.com/docs/manual/reference/bson-types/#std-label-bson-types). Field keys cannot be `null` or `undefined`.
+
+```js
 {
-  "_id": ObjectId("507f1f77bcf86cd799439011"),
-  "name": "John Doe",
-  "age": 30,
-  "address": {
-    "street": "123 Main St",
-    "city": "Anytown"
+  _id: ObjectId("507f1f77bcf86cd799439011"),
+  name: "John Doe",
+  age: 29,
+  address: {
+    street: "123 Main St",
+    city: "Anytown",
+    zip: "12345"
   },
-  "hobbies": ["reading", "traveling"]
+  hobbies: ["reading", "traveling"],
 }
 ```
 
-The document schema contains a unique `_id` field that serves as the primary key for the document. If not provided, MongoDB automatically generates an [`ObjectId`](https://www.mongodb.com/docs/manual/reference/bson-types/#std-label-objectid) for this field.
+As you may have noticed in the previous example, each document has a field [`_id`](https://www.mongodb.com/docs/manual/core/document/#the-_id-field) that acts as a unique primary key for each document. This field is mandatory and immutable. It is generated automatically if not provided.
 
-Documents are grouped into [collections](https://www.mongodb.com/docs/manual/core/databases-and-collections/#collections), which are similar to tables in relational databases. Collections do not enforce a fixed schema, allowing for flexibility in the structure of documents.
+### Collections
+
+MongoDB stores documents in [collections](https://www.mongodb.com/docs/manual/core/databases-and-collections/#collections). They are the equivalent of analogous to tables in relational databases. However, unlike tables, collections do not enforce a fixed schema. This allows to define documents with varying structures within the same collection.
+
+However, you can enforce a schema using [JSON Schema validation](https://www.mongodb.com/docs/manual/core/schema-validation/). If you try to insert a document that does not conform to the defined schema, MongoDB will reject the operation.
 
 ### Atlas Platform
 
@@ -36,16 +43,13 @@ Documents are grouped into [collections](https://www.mongodb.com/docs/manual/cor
 
 It offers a free tier, which is great for learning and small projects. You can connect to Atlas using various [programming language-specific drivers](https://www.mongodb.com/docs/drivers/).
 
-### Compass
+### Compass GUI
 
 [MongoDB Compass](https://www.mongodb.com/products/tools/compass) is the official GUI for MongoDB. It provides a visual interface for interacting with your MongoDB data, allowing you to explore your data, run queries, and perform various database operations without needing to write code.
 
-### When to Use
+### Resources
 
-- **Semi-structured or evolving data** - MongoDB shines when dealing with data that doesn't fit a rigid schema or when your data structure needs to adapt frequently without costly migrations.
-- **JSON-first APIs** - If you're building web or mobile applications that work natively with JSON, MongoDB's document-oriented model aligns perfectly with your API design, eliminating unnecessary transformation layers.
-- **Horizontal scalability** - MongoDB supports sharding out of the box, allowing you to scale your database incrementally by distributing data across multiple servers as your needs grow.
-- **Agile development** - For rapid prototyping and iterative development cycles where flexibility is paramount, MongoDB removes the friction of predefined schemas, letting you evolve your data model alongside your application.
+- [Custom `_id` values](https://www.mongodb.com/docs/drivers/node/current/crud/pkFactory/)
 
 ### References
 

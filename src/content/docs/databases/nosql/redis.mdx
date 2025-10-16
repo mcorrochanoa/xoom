@@ -1,0 +1,59 @@
+---
+title: Redis
+description: An introduction to Redis
+---
+
+import { FileTree } from '@astrojs/starlight/components'
+import { YouTube } from 'astro-embed'
+
+[Redis](https://redis.io/) is an open-source, in-memory data structure store that can be used as a database, cache, and message broker, stream engine and more. Redis is known for its high performance, low latency, and scalability, making it suitable for real-time applications.
+
+<YouTube id="https://youtu.be/G1rOthIU-uo" posterQuality="max" />
+
+### Documents
+
+[Documents](https://redis.io/docs/latest/develop/get-started/document-database/) in Redis are data structures in [JSON](https://www.json.org/) format that can contain various [data types](https://redis.io/docs/latest/develop/data-types/). These documents are stored in memory, allowing for fast and efficient access to data.
+
+```json
+{
+  "name": "Marcos",
+  "age": 30,
+  "city": "Madrid"
+}
+```
+
+In case you haven't noticed, documents don't need to have a primary key, since Redis assigns a unique identifier to each document. We'll look at that in the next section.
+
+### Groups
+
+Redis doesn't have traditional "collections" like [SQL databases](/databases#sql) or document stores. However, you can organize data into logical groups using key naming patterns. Each document is uniquely identified by its complete key.
+
+<FileTree>
+
+- local (redis:6379)
+  - messages
+    - 001 `messages:001`
+    - 002 `messages:002`
+  - codes
+    - 001 `codes:001`
+    - 002 `codes:002`
+    - 003 `codes:003`
+
+</FileTree>
+
+You can query groups using patterns like `user:*` to find all keys matching that pattern. There are a few tools for working with Redis instances like [Redis CLI](https://redis.io/docs/latest/cli/) or [Redis Insight](https://redis.io/insight/) with GUI.
+
+### Redis Cloud
+
+[Redis Cloud](https://redis.io/cloud/) is a managed service that provides a fully managed Redis instance in the cloud. It offers features like automatic scaling, high availability, and data persistence. You can sign up for a free account and create a Redis instance in minutes.
+
+### Resources
+
+- [Redis Libraries and Tools](https://redis.io/docs/latest/integrate/)
+- [Redis Commander](https://github.com/joeferner/redis-commander) - GUI tool for managing Redis instances.
+
+### References
+
+- [Redis YouTube Channel](https://youtube.com/@RedisInc)
+- [Redis Official Documentation](https://redis.io/docs/)
+- [Fireship Youtube Channel](https://youtube.com/@Fireship)

@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import starlightSidebarTopics from 'starlight-sidebar-topics'
 
@@ -18,20 +18,11 @@ export default defineConfig({
             id: 'databases',
             icon: 'seti:db',
             items: [
-              { label: 'SQL', autogenerate: { directory: 'databases/sql' } },
               {
                 label: 'NoSQL',
                 autogenerate: { directory: 'databases/nosql' }
-              },
-              { label: 'ORM', autogenerate: { directory: 'databases/orm' } }
+              }
             ]
-          },
-          {
-            label: 'Frameworks',
-            link: '/frameworks/',
-            id: 'frameworks',
-            icon: 'seti:hex',
-            items: []
           }
         ])
       ],
@@ -44,7 +35,20 @@ export default defineConfig({
       ],
       editLink: {
         baseUrl: 'https://github.com/mxuee/apt/edit/main/'
-      }
+      },
+      components: {
+        Head: './src/components/Head.astro'
+      },
+      customCss: ['./src/styles/custom.css']
     })
-  ]
+  ],
+  experimental: {
+    fonts: [
+      {
+        cssVariable: '--font-inter',
+        name: 'Inter',
+        provider: fontProviders.google()
+      }
+    ]
+  }
 })
